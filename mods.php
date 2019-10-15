@@ -134,6 +134,31 @@ function mods_civicrm_entityTypes(&$entityTypes) {
   _mods_civix_civicrm_entityTypes($entityTypes);
 }
 
+/**
+ * Implements hook_civicrm_searchColumns().
+ *
+ * @param $objectName
+ *   The object for this search - activity, campaign, case, contact,
+ *   contribution, event, grant, membership, relationship and pledge are
+ *   supported.
+ * @param array $headers
+ *   The list of column headers, an associative array with keys: (name, sort,
+ *   order)
+ * @param array $rows
+ *   The list of values, an associate array with fields that are displayed for
+ *   that component
+ * @param \CRM_Core_Selector_Controller $selector
+ *   The selector object. Allows you access to the context of the search
+ */
+function mods_civicrm_searchColumns($objectName, &$headers, &$rows, &$selector) {
+  if (
+    $objectName == 'activity'
+    && isset($selector->_case) // Is this reliable?
+  ) {
+    // TODO: Change default sort order to activity_date asc.
+  }
+}
+
 // --- Functions below this ship commented out. Uncomment as required. ---
 
 /**
