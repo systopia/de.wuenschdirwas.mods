@@ -3,9 +3,7 @@ CRM.$(document).ready(function () {
     var $this = CRM.$(this);
     if (!$this.data('initialized')) {
       $this.data('initialized', true);
-      $this.DataTable()
-        .order([0, 'asc'])
-        .draw();
+      $this.find('th[data-data="activity_date_time"]').click();
     }
   });
 });
