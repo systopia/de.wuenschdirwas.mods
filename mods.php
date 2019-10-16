@@ -135,27 +135,17 @@ function mods_civicrm_entityTypes(&$entityTypes) {
 }
 
 /**
- * Implements hook_civicrm_searchColumns().
- *
- * @param $objectName
- *   The object for this search - activity, campaign, case, contact,
- *   contribution, event, grant, membership, relationship and pledge are
- *   supported.
- * @param array $headers
- *   The list of column headers, an associative array with keys: (name, sort,
- *   order)
- * @param array $rows
- *   The list of values, an associate array with fields that are displayed for
- *   that component
- * @param \CRM_Core_Selector_Controller $selector
- *   The selector object. Allows you access to the context of the search
+ * @param CRM_Core_Page $page
  */
-function mods_civicrm_searchColumns($objectName, &$headers, &$rows, &$selector) {
-  if (
-    $objectName == 'activity'
-    && isset($selector->_case) // Is this reliable?
-  ) {
-    // TODO: Change default sort order to activity_date asc.
+function mods_civicrm_pageRun(&$page) {
+  if (in_array($page->getVar('_name'), array(
+    'CRM_Case_Page_Tab',
+    'CRM_Case_Page_CaseDetails',
+  ))) {
+    $tplVars = $page->get_template_vars();
+    $case_id = $tplVars['caseID'];
+    CRM_Core_Resources::singleton()->addVars(E::SHORT_NAME, array('caseId' => $case_id));
+    CRM_Core_Resources::singleton()->addScriptFile(E::LONG_NAME, 'js/case-page-tab.js');
   }
 }
 
