@@ -145,7 +145,7 @@ function mods_civicrm_pageRun(&$page) {
     $tplVars = $page->get_template_vars();
     $case_id = $tplVars['caseID'];
     CRM_Core_Resources::singleton()->addVars(E::SHORT_NAME, array('caseId' => $case_id));
-    CRM_Core_Resources::singleton()->addScriptFile(E::LONG_NAME, 'js/case-page-tab.js');
+    CRM_Core_Resources::singleton()->addScriptFile(E::LONG_NAME, 'js/case-page-activity-table.js');
   }
 }
 
