@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <extension key="de.wuenschdirwas.mods" type="module">
   <file>mods</file>
-  <name>Wünsch dir was - Modifikationen</name>
-  <description>Modifikationen für Benutzeroberfläche und Funktionalität</description>
+  <name>W&#xFC;nsch dir was - Modifikationen</name>
+  <description>Modifikationen f&#xFC;r Benutzeroberfl&#xE4;che und Funktionalit&#xE4;t</description>
   <license>AGPL-3.0</license>
   <maintainer>
     <author>SYSTOPIA</author>
@@ -14,14 +14,18 @@
     <url desc="Support">https://github.com/systopia/de.wuenschdirwas.mods/issues</url>
     <url desc="Licensing">http://www.gnu.org/licenses/agpl-3.0.html</url>
   </urls>
-  <releaseDate></releaseDate>
+  <releaseDate/>
   <version>0.x-dev</version>
   <develStage>dev</develStage>
   <compatibility>
     <ver>5.0</ver>
   </compatibility>
-  <comments></comments>
+  <comments/>
   <civix>
     <namespace>CRM/Mods</namespace>
+    <format>23.02.1</format>
   </civix>
+  <classloader>
+    <psr4 prefix="Civi\" path="Civi"/>
+  </classloader>
 </extension>
